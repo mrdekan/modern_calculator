@@ -25,7 +25,22 @@
         </Border>
         <StackPanel Orientation="Horizontal">
             <StackPanel Height="775" Width="240">
-                
+                <RadioButton Content="Calculator"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"/>
+                <RadioButton Content="Number systems"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Featured"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
             </StackPanel>
             <StackPanel>
                 <StackPanel Height="160">
@@ -71,7 +86,8 @@
                     <Button x:Name="Add" Background="#242424" Content="+" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="3" Click="Add_Click"/>
                     <Button x:Name="Subtract" Background="#242424" Content="-" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="3" Click="Subtract_Click"/>
                     <Button x:Name="Multiply" Background="#242424" Content="×" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="3" Click="Multiply_Click"/>
-                    <Button x:Name="Divide" Background="#242424" Content="÷" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="1" Grid.Column="3" Click="Divide_Click"/>
+                    <Button x:Name="Clear_calc" Background="#242424" Content="C" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="1" Grid.Column="0" Click="Clear_calc_Click"/>
+                    <Button x:Name="Backspace_calc" Background="#242424" Content="⌫" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="1" Grid.Column="1"/>
                 </Grid>
             </StackPanel>
         </StackPanel>

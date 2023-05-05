@@ -223,5 +223,14 @@ namespace modern_calculator
 			}
 		}
 		#endregion
+
+		private void Clear_calc_Click(object sender, RoutedEventArgs e)
+		{
+			Main_operand_calc.Text = "0";
+			operand_calc.Text = "";
+			calc_operands = 0;
+			calc_operand_a = 0;
+			calc_operator = 'n';
+		}
 	}
 }

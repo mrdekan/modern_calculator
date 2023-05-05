@@ -27,3 +27,4 @@ F:\code\C#\modern_calculator\modern_calculator\obj\Debug\App.baml
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\modern_calculator.csproj.CopyComplete
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\ButtonTheme.baml
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\TitleButtonsTheme.baml
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\MenuButtonTheme.baml
