@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:modern_calculator"
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
-        Height="800" Width="650"
+        Height="810" Width="660"
         fw:AcrylicWindow.Enabled="True"
         fw:AcrylicWindow.AcrylicWindowStyle="None"
         fw:AcrylicPanel.NoiseOpacity="0.005"
@@ -19,8 +19,8 @@
     <StackPanel>
         <Border Background="Transparent" x:Name="Title" MouseDown="Title_MouseDown_1">
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Height="25">
-                <Button x:Name="Hide" Width="45" Click="Hide_Click"></Button>
-                <Button x:Name="Close" Width="45" Click="Close_Click"></Button>
+                <Button x:Name="Hide" Width="45" Click="Hide_Click" Style="{StaticResource TitleButtonTheme}" Background="#cccccc" Content="−"></Button>
+                <Button x:Name="Close" Width="45" Click="Close_Click" Style="{StaticResource TitleButtonTheme}" Background="Red" Content="×"></Button>
             </StackPanel>
         </Border>
         <StackPanel Orientation="Horizontal">
@@ -28,12 +28,19 @@
                 
             </StackPanel>
             <StackPanel>
-                <Border Height="160">
-                <TextBlock x:Name="Result_calc" HorizontalAlignment="Right"
+                <StackPanel Height="160">
+                    <TextBlock x:Name="operand_calc" HorizontalAlignment="Right"
+                           VerticalAlignment="Bottom"
+                           Foreground="White"
+                           Opacity="0.7"
+                           FontSize="26" 
+                           Margin="0,30,0,10"
+                           TextAlignment="Right"></TextBlock>
+                    <TextBlock x:Name="Main_operand_calc" HorizontalAlignment="Right"
                            VerticalAlignment="Bottom"
                            Foreground="White"
                            FontSize="48" TextAlignment="Right">0</TextBlock>
-                </Border>
+                </StackPanel>
                 <Grid Width="410" Height="615">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -49,22 +56,22 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button x:Name="One" Content="1" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="4" Click="One_Click"/>
-                    <Button x:Name="Two" Content="2" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="4" Grid.Column="1"/>
-                    <Button x:Name="Three" Content="3" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="4" Grid.Column="2"/>
-                    <Button x:Name="Four" Content="4" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="3" Grid.Column="0"/>
-                    <Button x:Name="Five" Content="5" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="3" Grid.Column="1"/>
-                    <Button x:Name="Six" Content="6" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="3" Grid.Column="2"/>
-                    <Button x:Name="Seven" Content="7" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="2" Grid.Column="0"/>
-                    <Button x:Name="Eight" Content="8" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="2" Grid.Column="1"/>
-                    <Button x:Name="Nine" Content="9" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="2" Grid.Column="2"/>
-                    <Button x:Name="Zero" Content="0" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="5" Grid.Column="1"/>
-                    <Button x:Name="Submit_Calc" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="5" Grid.Column="3"/>
-                    <Button x:Name="Point" Background="#242424" Content="." Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="5" Grid.Column="2"/>
-                    <Button x:Name="Add" Background="#242424" Content="+" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="4" Grid.Column="3"/>
-                    <Button x:Name="Subtract" Background="#242424" Content="-" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="3" Grid.Column="3"/>
-                    <Button x:Name="Multiply" Background="#242424" Content="×" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="2" Grid.Column="3"/>
-                    <Button x:Name="Divide" Background="#242424" Content="÷" Style="{StaticResource ButtonTheme}" Height="85" Width="85" Grid.Row="1" Grid.Column="3"/>
+                    <Button x:Name="One" Content="1" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Click="One_Click"/>
+                    <Button x:Name="Two" Content="2" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="1" Click="Two_Click"/>
+                    <Button x:Name="Three" Content="3" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="2" Click="Three_Click"/>
+                    <Button x:Name="Four" Content="4" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="0" Click="Four_Click"/>
+                    <Button x:Name="Five" Content="5" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="1" Click="Five_Click"/>
+                    <Button x:Name="Six" Content="6" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="2" Click="Six_Click"/>
+                    <Button x:Name="Seven" Content="7" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="0" Click="Seven_Click"/>
+                    <Button x:Name="Eight" Content="8" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="1" Click="Eight_Click"/>
+                    <Button x:Name="Nine" Content="9" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="2" Click="Nine_Click"/>
+                    <Button x:Name="Zero" Content="0" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="1" Click="Zero_Click"/>
+                    <Button x:Name="Submit_Calc" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="3" Click="Submit_Calc_Click"/>
+                    <Button x:Name="Point" Background="#242424" Content="." Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="2" Click="Point_Click"/>
+                    <Button x:Name="Add" Background="#242424" Content="+" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="3" Click="Add_Click"/>
+                    <Button x:Name="Subtract" Background="#242424" Content="-" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="3" Click="Subtract_Click"/>
+                    <Button x:Name="Multiply" Background="#242424" Content="×" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="3" Click="Multiply_Click"/>
+                    <Button x:Name="Divide" Background="#242424" Content="÷" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="1" Grid.Column="3" Click="Divide_Click"/>
                 </Grid>
             </StackPanel>
         </StackPanel>

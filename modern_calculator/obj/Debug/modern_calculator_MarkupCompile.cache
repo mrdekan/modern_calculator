@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\code\C#\modern_calculator\modern_calculator\App.xaml
-2233358911
+3-1592032190
 
-51579654133
+6-502434485
 171447790051
-MainWindow.xaml;Theme\ButtonTheme.xaml;
+MainWindow.xaml;Theme\ButtonTheme.xaml;Theme\TitleButtonsTheme.xaml;
 
-False
+True
 
