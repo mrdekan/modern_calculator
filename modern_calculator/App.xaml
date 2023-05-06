@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:modern_calculator"
+             xmlns:viewModel="clr-namespace:modern_calculator.MVVM.ViewModel"
+             xmlns:view="clr-namespace:modern_calculator.MVVM.View"
              StartupUri="MainWindow.xaml"
              xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
              >
@@ -12,7 +14,14 @@
                 <ResourceDictionary Source="Theme/ButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/TitleButtonsTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:CalculatorViewModel}">
+                <view:CalculatorView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:NumSysViewModel}">
+                <view:NumSysView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

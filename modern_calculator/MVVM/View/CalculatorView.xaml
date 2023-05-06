@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="modern_calculator.MVVM.View.CalculatorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:modern_calculator.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="775" d:DesignWidth="410">
+    <StackPanel>
+        <StackPanel Height="160">
+            <TextBlock x:Name="operand_calc" HorizontalAlignment="Right"
+                           VerticalAlignment="Bottom"
+                           Foreground="White"
+                           Opacity="0.7"
+                           FontSize="26" 
+                           Margin="0,30,0,10"
+                           TextAlignment="Right"/>
+            <TextBlock x:Name="Main_operand_calc" HorizontalAlignment="Right"
+                           VerticalAlignment="Bottom"
+                           Foreground="White"
+                           FontSize="48" TextAlignment="Right" MouseDown="Main_operand_calc_MouseDown">0</TextBlock>
+        </StackPanel>
+        <Grid Width="410" Height="615">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="One" Content="1" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Click="One_Click"/>
+            <Button x:Name="Two" Content="2" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="1" Click="Two_Click"/>
+            <Button x:Name="Three" Content="3" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="2" Click="Three_Click"/>
+            <Button x:Name="Four" Content="4" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="0" Click="Four_Click"/>
+            <Button x:Name="Five" Content="5" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="1" Click="Five_Click"/>
+            <Button x:Name="Six" Content="6" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="2" Click="Six_Click"/>
+            <Button x:Name="Seven" Content="7" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="0" Click="Seven_Click"/>
+            <Button x:Name="Eight" Content="8" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="1" Click="Eight_Click"/>
+            <Button x:Name="Nine" Content="9" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="2" Click="Nine_Click"/>
+            <Button x:Name="Zero" Content="0" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="1" Click="Zero_Click"/>
+            <Button x:Name="Submit_Calc" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="3" Click="Submit_Calc_Click"/>
+            <Button x:Name="Point" Background="#242424" Content="." Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="2" Click="Point_Click"/>
+            <Button x:Name="Add" Background="#242424" Content="+" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="3" Click="Add_Click"/>
+            <Button x:Name="Subtract" Background="#242424" Content="-" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="3" Click="Subtract_Click"/>
+            <Button x:Name="Multiply" Background="#242424" Content="×" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="3" Click="Multiply_Click"/>
+            <Button x:Name="Divide" Background="#242424" Content="÷" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="1" Grid.Column="3" Click="Divide_Click_1"/>
+            <Button x:Name="Clear_calc" Background="#242424" Content="C" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="1" Grid.Column="0" Click="Clear_calc_Click"/>
+            <Button x:Name="Backspace_calc" Background="#242424" Content="←" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="1" Grid.Column="1" Click="Backspace_calc_Click"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

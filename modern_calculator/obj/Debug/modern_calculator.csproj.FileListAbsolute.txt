@@ -28,3 +28,9 @@ F:\code\C#\modern_calculator\modern_calculator\obj\Debug\modern_calculator.cspro
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\ButtonTheme.baml
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\TitleButtonsTheme.baml
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\MenuButtonTheme.baml
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\CalculatorView.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\GeneratedInternalTypeHelper.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\CalculatorView.baml
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NumSysView.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NumSysView.baml
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\TextBoxTheme.baml
