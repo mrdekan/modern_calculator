@@ -3,7 +3,6 @@
     <Style TargetType="{x:Type TextBox}"
           x:Key="ModernTextBox">
         <Setter Property="Background" Value="#3d3d3d"/>
-        <Setter Property="Opacity" Value="0.95"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Padding" Value="7,0,6,0"/>

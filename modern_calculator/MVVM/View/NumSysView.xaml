@@ -7,19 +7,57 @@
              mc:Ignorable="d" 
              d:DesignHeight="775" d:DesignWidth="410">
     <Grid>
-        <TextBox x:Name="NumSys_input" Width="250"
-                 Height="40"
-                 VerticalContentAlignment="Center"
-                 Margin="5"
-                 Grid.Column="1"
-                 HorizontalAlignment="Left"
-                 KeyDown="NumSys_input_KeyDown"
-                 Style="{StaticResource ModernTextBox}">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
+        <StackPanel>
+            <Border x:Name="ErrorBorder_NumSys" Background="Red" HorizontalAlignment="Left" CornerRadius="10" Height="42" Margin="10" Width="317" Padding="1,0,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="NumSys_input" Width="250"
+                         Height="40"
+                         VerticalContentAlignment="Center"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         KeyDown="NumSys_input_KeyDown"
+                         Style="{StaticResource ModernTextBox}">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10,0,0,10"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <ComboBox x:Name="FromSys_NumSys" Height="40" Width="50" BorderThickness="0" Background="#3d3d3d" Style="{DynamicResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}">
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>8</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            </Border>
+            <TextBlock x:Name="ErrorLabel_NumSys" Margin="10,-12,0,0" Foreground="Red"></TextBlock>
+            <StackPanel Margin="0,10,0,15" Orientation="Horizontal">
+                <Button x:Name="Submit_NumSys" Margin="10,0" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="50" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" Click="Submit_NumSys_Click"/>
+                <Button x:Name="Reverse_NumSys" Margin="10,0" Background="#242424" Content="↑↓" Style="{StaticResource ButtonTheme}" Height="50" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" Click="Reverse_NumSys_Click"/>
+            </StackPanel>
+            <Border HorizontalAlignment="Left" CornerRadius="10" Height="42" Margin="10" Width="317" Padding="1,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="NumSys_output" Width="250"
+                         Height="40"
+                         VerticalContentAlignment="Center"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}" Focusable="False" MouseDown="NumSys_output_MouseDown">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10,0,0,10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <ComboBox x:Name="ToSys_NumSys" Height="40" Width="50" BorderThickness="0" Background="#3d3d3d" Style="{DynamicResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}" Focusable="False" AllowDrop="True">
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>8</ComboBoxItem>
+                        <ComboBoxItem>10</ComboBoxItem>
+                        <ComboBoxItem>16</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+        </StackPanel>
     </Grid>
 </UserControl>

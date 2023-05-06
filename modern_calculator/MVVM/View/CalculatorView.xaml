@@ -12,13 +12,13 @@
                            VerticalAlignment="Bottom"
                            Foreground="White"
                            Opacity="0.7"
-                           FontSize="26" 
+                           FontSize="22" 
                            Margin="0,30,0,10"
                            TextAlignment="Right"/>
             <TextBlock x:Name="Main_operand_calc" HorizontalAlignment="Right"
                            VerticalAlignment="Bottom"
                            Foreground="White"
-                           FontSize="48" TextAlignment="Right" MouseDown="Main_operand_calc_MouseDown">0</TextBlock>
+                           FontSize="47" TextAlignment="Right" MouseDown="Main_operand_calc_MouseDown">0</TextBlock>
         </StackPanel>
         <Grid Width="410" Height="615">
             <Grid.ColumnDefinitions>
@@ -45,7 +45,7 @@
             <Button x:Name="Eight" Content="8" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="1" Click="Eight_Click"/>
             <Button x:Name="Nine" Content="9" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="2" Grid.Column="2" Click="Nine_Click"/>
             <Button x:Name="Zero" Content="0" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="1" Click="Zero_Click"/>
-            <Button x:Name="Submit_Calc" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="3" Click="Submit_Calc_Click"/>
+            <Button x:Name="Error_border_NumSys" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="3" Click="Submit_Calc_Click"/>
             <Button x:Name="Point" Background="#242424" Content="." Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="5" Grid.Column="2" Click="Point_Click"/>
             <Button x:Name="Add" Background="#242424" Content="+" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="4" Grid.Column="3" Click="Add_Click"/>
             <Button x:Name="Subtract" Background="#242424" Content="-" Style="{StaticResource ButtonTheme}" Height="90" Width="90" Grid.Row="3" Grid.Column="3" Click="Subtract_Click"/>
