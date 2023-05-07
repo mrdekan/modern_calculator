@@ -81,7 +81,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\Converter.cs" />
-    <Compile Include="Core\CurrencyRate.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
