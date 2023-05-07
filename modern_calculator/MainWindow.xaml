@@ -42,11 +42,12 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NumSysViewCommand}"/>
-                <RadioButton Content="Featured"
+                <RadioButton Content="Currency translator"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding CurrTransViewCommand}"/>
             </StackPanel>
             <ContentControl Content="{Binding CurrentView}"/>
         </StackPanel>

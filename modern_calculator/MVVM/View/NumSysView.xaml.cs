@@ -53,13 +53,13 @@ namespace modern_calculator.MVVM.View
 			switch (numSys)
 			{
 				case 0:
-					return Regex.IsMatch(input, "^[0-1,]+$");
+					return Regex.IsMatch(input, "^[0-1,.]+$");
 				case 1:
-					return Regex.IsMatch(input, "^[0-7,]+$");
+					return Regex.IsMatch(input, "^[0-7,.]+$");
 				case 2:
-					return Regex.IsMatch(input, "^[0-9,]+$");
+					return Regex.IsMatch(input, "^[0-9,.]+$");
 				case 3:
-					return Regex.IsMatch(input, "^[0-9A-Fa-f,]+$");
+					return Regex.IsMatch(input, "^[0-9A-Fa-f,.]+$");
 			}
 			return false;
 		}
@@ -95,7 +95,6 @@ namespace modern_calculator.MVVM.View
 		private void Submit_NumSys_Click(object sender, RoutedEventArgs e)
 		{
 			ClearError();
-			NumSys_input.Text = NumSys_input.Text.Replace(".", ",").ToUpper();
 			if (NumSys_input.Text == "")
 			{
 				Error("This field can not be empty");
@@ -106,6 +105,7 @@ namespace modern_calculator.MVVM.View
 				Error("Incorrect input");
 				return;
 			}
+			NumSys_input.Text = NumSys_input.Text.Replace(".", ",").ToUpper();
 			NumSys_output.Text = converter.Convert(numSystems[FromSys_NumSys.SelectedIndex], numSystems[ToSys_NumSys.SelectedIndex], NumSys_input.Text, 8);
 		}
 

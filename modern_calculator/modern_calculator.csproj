@@ -49,6 +49,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -78,6 +81,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Core\Converter.cs" />
+    <Compile Include="Core\CurrencyRate.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -85,6 +89,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MVVM\View\CalculatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\CurrencyTranslatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,10 +123,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\ViewModel\CalculatorViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\CurrencyTranslatorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\NumSysViewModel.cs" />
     <Compile Include="MVVM\View\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\CurrencyTranslatorView.xaml.cs">
+      <DependentUpon>CurrencyTranslatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\NumSysView.xaml.cs">
       <DependentUpon>NumSysView.xaml</DependentUpon>

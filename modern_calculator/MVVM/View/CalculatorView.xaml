@@ -18,7 +18,7 @@
             <TextBlock x:Name="Main_operand_calc" HorizontalAlignment="Right"
                            VerticalAlignment="Bottom"
                            Foreground="White"
-                           FontSize="47" TextAlignment="Right" MouseDown="Main_operand_calc_MouseDown">0</TextBlock>
+                           FontSize="46" TextAlignment="Right" MouseDown="Main_operand_calc_MouseDown">0</TextBlock>
         </StackPanel>
         <Grid Width="410" Height="615">
             <Grid.ColumnDefinitions>

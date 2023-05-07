@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\code\C#\modern_calculator\modern_calculator\App.xaml
-8-37974937
+9-45235674
 
-13-173661333
-171447790051
-MainWindow.xaml;MVVM\View\CalculatorView.xaml;MVVM\View\NumSysView.xaml;Theme\ButtonTheme.xaml;Theme\ComboBoxTheme.xaml;Theme\MenuButtonTheme.xaml;Theme\TextBoxTheme.xaml;Theme\TitleButtonsTheme.xaml;
+16-1647511715
+18-1824337409
+MainWindow.xaml;MVVM\View\CalculatorView.xaml;MVVM\View\CurrencyTranslatorView.xaml;MVVM\View\NumSysView.xaml;Theme\ButtonTheme.xaml;Theme\ComboBoxTheme.xaml;Theme\MenuButtonTheme.xaml;Theme\TextBoxTheme.xaml;Theme\TitleButtonsTheme.xaml;
 
 False
 

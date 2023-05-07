@@ -35,3 +35,7 @@ F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NumSysView.g.
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NumSysView.baml
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\TextBoxTheme.baml
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Theme\ComboBoxTheme.baml
+F:\code\C#\modern_calculator\modern_calculator\bin\Debug\Newtonsoft.Json.dll
+F:\code\C#\modern_calculator\modern_calculator\bin\Debug\Newtonsoft.Json.xml
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\CurrencyTranslatorView.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\CurrencyTranslatorView.baml

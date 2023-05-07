@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="modern_calculator.MVVM.View.CurrencyTranslatorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:modern_calculator.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <Border x:Name="ErrorBorder_CurrTrans" Background="Red" HorizontalAlignment="Left" CornerRadius="10" Height="42" Margin="10" Width="317" Padding="1,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="CurrTrans_input" Width="250"
+                         Height="40"
+                         VerticalContentAlignment="Center"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10,0,0,10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <ComboBox x:Name="From_CurrTrans" Height="40" Width="50" BorderThickness="0" Background="#3d3d3d" Style="{DynamicResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}">
+                        <ComboBoxItem>USD</ComboBoxItem>
+                        <ComboBoxItem>EUR</ComboBoxItem>
+                        <ComboBoxItem>JPY</ComboBoxItem>
+                        <ComboBoxItem>UAH</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+            <TextBlock x:Name="ErrorLabel_CurrTrans" Margin="10,-12,0,0" Foreground="Red"></TextBlock>
+            <StackPanel Margin="0,10,0,15" Orientation="Horizontal">
+                <Button x:Name="Submit_CurrTrans" Margin="10,0" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="50" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" Click="Submit_CurrTrans_Click"/>
+                <Button x:Name="Reverse_CurrTrans" Margin="10,0" Background="#242424" Content="↑↓" Style="{StaticResource ButtonTheme}" Height="50" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left"/>
+            </StackPanel>
+            <Border HorizontalAlignment="Left" CornerRadius="10" Height="42" Margin="10" Width="317" Padding="1,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="CurrTrans_output" Width="250"
+                         Height="40"
+                         VerticalContentAlignment="Center"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Style="{StaticResource ModernTextBox}" Focusable="False">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="10,0,0,10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <ComboBox x:Name="To_CurrTrans" Height="40" Width="60" BorderThickness="0" Background="#3d3d3d" Style="{DynamicResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}" Focusable="False" AllowDrop="True">
+                        <ComboBoxItem>USD</ComboBoxItem>
+                        <ComboBoxItem>EUR</ComboBoxItem>
+                        <ComboBoxItem>JPY</ComboBoxItem>
+                        <ComboBoxItem>UAH</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>
