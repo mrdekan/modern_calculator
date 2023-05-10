@@ -68,12 +68,11 @@ namespace modern_calculator.MVVM.View
 			if(e.Key == Key.OemComma || e.Key == Key.OemPeriod)
 			{
 				if(!HasNotMoreOneComma(NumSys_input.Text)) e.Handled = true;
-				return;
 			}
-			/*if (e.Key < Key.D0 || e.Key > Key.D9 || NumSys_input.Text.Length > 26)
+			if (NumSys_input.Text.Length > 26)
 			{
 				e.Handled = true;
-			}*/
+			}
 		}
 
 		private void Reverse_NumSys_Click(object sender, RoutedEventArgs e)
@@ -83,6 +82,10 @@ namespace modern_calculator.MVVM.View
 			{
 				NumSys_input.Text = converter.Convert(numSystems[FromSys_NumSys.SelectedIndex], numSystems[ToSys_NumSys.SelectedIndex], NumSys_input.Text, 8);
 			}
+            else
+            {
+				NumSys_output.Text = "";
+            }
 			int temp = FromSys_NumSys.SelectedIndex;
 			FromSys_NumSys.SelectedIndex = ToSys_NumSys.SelectedIndex;
 			ToSys_NumSys.SelectedIndex = temp;
