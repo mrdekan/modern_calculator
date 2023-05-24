@@ -36,7 +36,7 @@ namespace modern_calculator.MVVM.View
 			WebClient wb = new WebClient();
 			try
 			{
-				line = wb.DownloadString("https://bank.gov.ua/NBU_Exchange/exchange?date=" + DateTime.Now.ToString("dd/M/yyyy").Replace("/", "."));
+				line = wb.DownloadString("https://bank.gov.ua/NBU_Exchange/exchange?date=" + DateTime.Now.ToString("dd.M.yyyy"));
 			}
 			catch
 			{
