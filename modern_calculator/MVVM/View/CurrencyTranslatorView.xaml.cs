@@ -1,24 +1,17 @@
-﻿using MaterialDesignColors;
-using modern_calculator.Core;
-using Newtonsoft.Json;
+﻿using modern_calculator.Core;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace modern_calculator.MVVM.View
 {
@@ -27,6 +20,7 @@ namespace modern_calculator.MVVM.View
     /// </summary>
     public partial class CurrencyTranslatorView : UserControl
     {
+        private const string BANK_JSON_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
         private string[] currency = { "USD", "EUR", "JPY", "UAH" };
         private string json = "";
         List<Currency> currencies;
@@ -36,24 +30,32 @@ namespace modern_calculator.MVVM.View
             To_CurrTrans.SelectedIndex = 0;
             From_CurrTrans.SelectedIndex = 3;
             ErrorBorder_CurrTrans.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-            WebClient wb = new WebClient();
-            try
-            {
-                json = wb.DownloadString("https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json");
-                currencies = new JavaScriptSerializer().Deserialize<List<Currency>>(json);
-            }
-            catch
-            {
-                CurrTrans_output.Text = "An error occured when processing your request";
-            }
+            Download();
         }
-        private double getCurrency(string name) => currencies.Find(el => el.cc == name).rate;
+        private async void Download()
+        {
+            await Task.Run(() =>
+            {
+                WebClient wb = new WebClient();
+                try
+                {
+                    json = wb.DownloadString(BANK_JSON_URL);
+                    currencies = new JavaScriptSerializer().Deserialize<List<Currency>>(json);
+                }
+                catch
+                {
+                    CurrTrans_output.Text = "An error occured when processing your request";
+                }
+            });
+        }
+        private double GetCurrency(string name) => currencies.Find(el => el.cc == name).rate;
         private double ConvertCurr(string from, string to, double value)
         {
+            if (json == "") return -1;
             if (from == to) return value;
-            if (from == "UAH") return Math.Round(value / getCurrency(to), 3);
-            if (to == "UAH") return Math.Round(getCurrency(from) * value, 3);
-            return Math.Round(value / getCurrency(to) * getCurrency(from) * value, 3);
+            if (from == "UAH") return Math.Round(value / GetCurrency(to), 3);
+            if (to == "UAH") return Math.Round(GetCurrency(from) * value, 3);
+            return Math.Round(value / GetCurrency(to) * GetCurrency(from) * value, 3);
         }
         private void ClearError()
         {
