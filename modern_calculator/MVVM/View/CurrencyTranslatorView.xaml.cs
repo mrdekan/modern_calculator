@@ -67,12 +67,70 @@ namespace modern_calculator.MVVM.View
 			if (to == "UAH") return Math.Round((getCurrency(from, line) * value), 3);
 			return Math.Round(value / getCurrency(to, line) * getCurrency(from, line) * value, 3);
 		}
+		private void ClearError()
+		{
+			ErrorLabel_CurrTrans.Text = "";
+			ErrorBorder_CurrTrans.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+		}
+		private void Error(string err)
+		{
+			ErrorBorder_CurrTrans.Background = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+			ErrorLabel_CurrTrans.Text = err;
+		}
 		private void Submit_CurrTrans_Click(object sender, RoutedEventArgs e)
 		{
+			ClearError();
+            if (CurrTrans_input.Text == "")
+            {
+				Error("This field can not be empty");
+				return;
+			}
+			if(!Regex.IsMatch(CurrTrans_input.Text, "^[0-9,.]+$"))
+            {
+				Error("Incorrect input");
+				return;
+			}
 			if (line != "")
 			{
 				CurrTrans_output.Text = Convert(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], double.Parse(CurrTrans_input.Text.Replace(".", ","))).ToString();
 			}
 		}
-	}
+
+        private void Reverse_CurrTrans_Click(object sender, RoutedEventArgs e)
+        {
+			ClearError();
+			if (CurrTrans_input.Text != "")
+			{
+				CurrTrans_input.Text = Convert(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], double.Parse(CurrTrans_input.Text.Replace(".", ","))).ToString();
+			}
+            else
+            {
+				CurrTrans_output.Text = "";
+            }
+			int temp = From_CurrTrans.SelectedIndex;
+			From_CurrTrans.SelectedIndex = To_CurrTrans.SelectedIndex;
+			To_CurrTrans.SelectedIndex = temp;
+			if (CurrTrans_input.Text != "")
+			{
+				CurrTrans_output.Text = Convert(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], double.Parse(CurrTrans_input.Text.Replace(".", ","))).ToString();
+			}
+		}
+		private static bool HasNotMoreOneComma(string s)
+		{
+			int count = 0;
+			foreach (char c in s) if (c == ',' || c == '.') count++;
+			return count < 1;
+		}
+		private void CurrTrans_input_KeyDown(object sender, KeyEventArgs e)
+        {
+			if (e.Key == Key.OemComma || e.Key == Key.OemPeriod)
+			{
+				if (!HasNotMoreOneComma(CurrTrans_input.Text)) e.Handled = true;
+			}
+			if (CurrTrans_input.Text.Length > 26)
+			{
+				e.Handled = true;
+			}
+		}
+    }
 }

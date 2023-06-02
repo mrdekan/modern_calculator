@@ -15,7 +15,7 @@
                          VerticalContentAlignment="Center"
                          Grid.Column="1"
                          HorizontalAlignment="Left"
-                         Style="{StaticResource ModernTextBox}">
+                         Style="{StaticResource ModernTextBox}" KeyDown="CurrTrans_input_KeyDown">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="10,0,0,10"/>
@@ -33,7 +33,7 @@
             <TextBlock x:Name="ErrorLabel_CurrTrans" Margin="10,-12,0,0" Foreground="Red"></TextBlock>
             <StackPanel Margin="0,10,0,15" Orientation="Horizontal">
                 <Button x:Name="Submit_CurrTrans" Margin="10,0" Background="#ff7929" Content="=" Style="{StaticResource ButtonTheme}" Height="50" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" Click="Submit_CurrTrans_Click"/>
-                <Button x:Name="Reverse_CurrTrans" Margin="10,0" Background="#242424" Content="↑↓" Style="{StaticResource ButtonTheme}" Height="50" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left"/>
+                <Button x:Name="Reverse_CurrTrans" Margin="10,0" Background="#242424" Content="↑↓" Style="{StaticResource ButtonTheme}" Height="50" Width="80" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" Click="Reverse_CurrTrans_Click"/>
             </StackPanel>
             <Border HorizontalAlignment="Left" CornerRadius="10" Height="42" Margin="10" Width="317" Padding="1,0,0,0">
                 <StackPanel Orientation="Horizontal">
