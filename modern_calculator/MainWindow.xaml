@@ -11,9 +11,9 @@
         fw:AcrylicWindow.Enabled="True"
         fw:AcrylicWindow.AcrylicWindowStyle="None"
         fw:AcrylicPanel.NoiseOpacity="0.005"
-        fw:AcrylicPanel.TintOpacity="0.5"
+        fw:AcrylicPanel.TintOpacity="0.9"
         fw:AcrylicPanel.TintColor="Black"
-        fw:AcrylicWindow.AcrylicAccentState="BlurBehind"
+        fw:AcrylicWindow.AcrylicAccentState="TransparentGradient"
         WindowStyle="None"
         ResizeMode="NoResize"
         AllowsTransparency="True">
@@ -21,35 +21,36 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <StackPanel>
-        <Border Background="Transparent" x:Name="Title" MouseDown="Title_MouseDown_1">
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Height="25">
-                <Button x:Name="Hide" Width="45" Click="Hide_Click" Style="{StaticResource TitleButtonTheme}" Background="#cccccc" Content="−"></Button>
-                <Button x:Name="Close" Width="45" Click="Close_Click" Style="{StaticResource TitleButtonTheme}" Background="Red" Content="×"></Button>
-            </StackPanel>
-        </Border>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel Height="775" Width="240">
-                <RadioButton Content="Calculator"
+
+            <Border Background="Transparent" x:Name="Title" MouseDown="Title_MouseDown_1">
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Height="25">
+                    <Button x:Name="Hide" Width="45" Click="Hide_Click" Style="{StaticResource TitleButtonTheme}" Background="#cccccc" Content="−"></Button>
+                    <Button x:Name="Close" Width="45" Click="Close_Click" Style="{StaticResource TitleButtonTheme}" Background="Red" Content="×"></Button>
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Height="775" Width="240">
+                    <RadioButton Content="Calculator"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding CalculatorViewCommand}"
                              IsChecked="True"/>
-                <RadioButton Content="Number systems"
+                    <RadioButton Content="Number systems"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding NumSysViewCommand}"/>
-                <RadioButton Content="Currency translator"
+                    <RadioButton Content="Currency translator"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding CurrTransViewCommand}"/>
+                </StackPanel>
+                <ContentControl Content="{Binding CurrentView}"/>
             </StackPanel>
-            <ContentControl Content="{Binding CurrentView}"/>
         </StackPanel>
-    </StackPanel>
 </Window>
