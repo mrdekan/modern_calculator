@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\NoteControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +103,10 @@
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NoteControl.xaml.cs">
+      <DependentUpon>NoteControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\AppState.cs" />
     <Compile Include="Core\Converter.cs" />
     <Compile Include="Core\Currency.cs" />
     <Compile Include="Core\ObservableObject.cs" />
@@ -113,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\CurrencyTranslatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\NotesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +162,7 @@
     <Compile Include="MVVM\ViewModel\CalculatorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\CurrencyTranslatorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\NotesViewModel.cs" />
     <Compile Include="MVVM\ViewModel\NumSysViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SystemMonitorViewModel.cs" />
     <Compile Include="MVVM\View\CalculatorView.xaml.cs">
@@ -157,6 +170,9 @@
     </Compile>
     <Compile Include="MVVM\View\CurrencyTranslatorView.xaml.cs">
       <DependentUpon>CurrencyTranslatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\NotesView.xaml.cs">
+      <DependentUpon>NotesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\NumSysView.xaml.cs">
       <DependentUpon>NumSysView.xaml</DependentUpon>

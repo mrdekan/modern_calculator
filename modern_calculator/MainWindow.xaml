@@ -29,7 +29,7 @@
                 </StackPanel>
             </Border>
             <StackPanel Orientation="Horizontal">
-                <StackPanel Height="775" Width="240">
+                <StackPanel x:Name="Menu" Height="775" Width="240">
                     <RadioButton Content="Calculator"
                              Height="50"
                              Foreground="White"
@@ -60,9 +60,9 @@
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
-                             />
+                             Command="{Binding NotesViewCommand}"/>
             </StackPanel>
-                <ContentControl Content="{Binding CurrentView}"/>
+                <ContentControl x:Name="Content" Content="{Binding CurrentView}" Width="410" Height="775"/>
             </StackPanel>
         </StackPanel>
 </Window>

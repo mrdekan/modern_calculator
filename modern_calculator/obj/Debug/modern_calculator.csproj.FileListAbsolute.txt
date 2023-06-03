@@ -87,3 +87,7 @@ F:\code\C#\modern_calculator\modern_calculator\bin\Debug\Microsoft.Expression.Dr
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\CircularProgressBar.g.cs
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\CircularProgressBar.baml
 F:\code\C#\modern_calculator\modern_calculator\bin\Debug\OpenHardwareMonitorLib.dll
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\NoteControl.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NotesView.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\NoteControl.baml
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NotesView.baml

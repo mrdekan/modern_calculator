@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,7 +26,11 @@ namespace modern_calculator
 		{
 			InitializeComponent();
 			PC.Open();
-		}
+            AppState.ContentWidth = Content.Width;
+			AppState.ContentHeight = Content.Height;
+			AppState.ContentMargin = Menu.Width+50;
+
+        }
 
 		private void Close_Click(object sender, RoutedEventArgs e)
 		{

@@ -19,6 +19,8 @@ namespace modern_calculator.MVVM.ViewModel
 		public CurrencyTranslatorViewModel CurrTransVM { get; set; }
         public RelayCommand SysMonitorViewCommand { get; set; }
         public SystemMonitorViewModel SysMonVM { get; set; }
+        public RelayCommand NotesViewCommand { get; set; }
+        public NotesViewModel NotesVM { get; set; }
         private object _currentView;
 		public object CurrentView
 		{
@@ -35,7 +37,8 @@ namespace modern_calculator.MVVM.ViewModel
 			NumSysVM = new NumSysViewModel();
 			CurrTransVM = new CurrencyTranslatorViewModel();
 			SysMonVM = new SystemMonitorViewModel();
-			CurrentView = CalculatorVM;
+            NotesVM = new NotesViewModel();
+            CurrentView = CalculatorVM;
 			CalculatorViewCommand = new RelayCommand(o =>
 			{
 				CurrentView = CalculatorVM;
@@ -51,6 +54,10 @@ namespace modern_calculator.MVVM.ViewModel
             SysMonitorViewCommand = new RelayCommand(o =>
             {
                 CurrentView = SysMonVM;
+            });
+            NotesViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = NotesVM;
             });
         }
 	}

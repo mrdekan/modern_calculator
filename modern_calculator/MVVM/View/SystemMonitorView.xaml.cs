@@ -17,6 +17,9 @@ namespace modern_calculator.MVVM.View
         private CircularProgressBar pbCPU = new CircularProgressBar();
         private CircularProgressBar pbGPU = new CircularProgressBar();
         private CircularProgressBar pbRAM = new CircularProgressBar();
+        private const int radius = 50;
+        private const double procentsToAngle = 2.7;
+        private const int startPosInProgressBar = 225;
         public SystemMonitorView()
         {
 
@@ -69,8 +72,8 @@ namespace modern_calculator.MVVM.View
         private (double, double) GetPointPos(int procents)
         {
             if (procents == 0) return (-35.34, 35.34);
-            double angle = 2.7 * procents - 225;
-            return (50 * Math.Cos(angle * Math.PI / 180), 50 * Math.Sin(angle * Math.PI / 180));
+            double angle = procentsToAngle * procents - startPosInProgressBar;
+            return (radius * Math.Cos(angle * Math.PI / 180), radius * Math.Sin(angle * Math.PI / 180));
         }
         private int GetCpuLoad()
         {
