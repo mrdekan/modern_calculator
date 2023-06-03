@@ -10,13 +10,14 @@
         Height="810" Width="660"
         fw:AcrylicWindow.Enabled="True"
         fw:AcrylicWindow.AcrylicWindowStyle="None"
-        fw:AcrylicPanel.NoiseOpacity="0.005"
-        fw:AcrylicPanel.TintOpacity="0.9"
+        fw:AcrylicPanel.NoiseOpacity="0.005" 
+        fw:AcrylicPanel.TintOpacity="0.9" 
         fw:AcrylicPanel.TintColor="Black"
         fw:AcrylicWindow.AcrylicAccentState="TransparentGradient"
         WindowStyle="None"
         ResizeMode="NoResize"
         AllowsTransparency="True">
+    <!-- Change the opacity parameter above if you want to change the transparency of the window -->
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
