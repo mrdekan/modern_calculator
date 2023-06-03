@@ -26,6 +26,9 @@
             <DataTemplate DataType="{x:Type viewModel:CurrencyTranslatorViewModel}">
                 <view:CurrencyTranslatorView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SystemMonitorViewModel}">
+                <view:SystemMonitorView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

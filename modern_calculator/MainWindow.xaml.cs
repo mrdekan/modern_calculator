@@ -1,4 +1,5 @@
-﻿using System;
+﻿using modern_calculator.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace modern_calculator
 		public MainWindow()
 		{
 			InitializeComponent();
+			PC.Open();
 		}
 
 		private void Close_Click(object sender, RoutedEventArgs e)

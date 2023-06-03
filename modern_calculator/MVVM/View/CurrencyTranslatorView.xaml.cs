@@ -55,7 +55,7 @@ namespace modern_calculator.MVVM.View
             if (from == to) return value;
             if (from == "UAH") return Math.Round(value / GetCurrency(to), 3);
             if (to == "UAH") return Math.Round(GetCurrency(from) * value, 3);
-            return Math.Round(value / GetCurrency(to) * GetCurrency(from) * value, 3);
+            return Math.Round(GetCurrency(from) * value / GetCurrency(to), 3);
         }
         private void ClearError()
         {
@@ -80,6 +80,7 @@ namespace modern_calculator.MVVM.View
                 Error("Incorrect input");
                 return;
             }
+            double d = Convert.ToDouble(CurrTrans_input.Text.Replace(",", "."));
             if (json != "")
                 CurrTrans_output.Text = ConvertCurr(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(",", "."))).ToString();
         }
@@ -92,6 +93,7 @@ namespace modern_calculator.MVVM.View
             else
                 CurrTrans_output.Text = "";
             (To_CurrTrans.SelectedIndex, From_CurrTrans.SelectedIndex) = (From_CurrTrans.SelectedIndex, To_CurrTrans.SelectedIndex);
+            
             if (CurrTrans_input.Text != "")
                 CurrTrans_output.Text = ConvertCurr(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(",", "."))).ToString();
         }

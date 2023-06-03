@@ -80,3 +80,10 @@ D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\modern_calculator.cspro
 D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\modern_calculator.csproj.CopyComplete
 D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\modern_calculator.exe
 D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\modern_calculator.pdb
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\SystemMonitorView.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\SystemMonitorView.baml
+F:\code\C#\modern_calculator\modern_calculator\bin\Debug\Microsoft.Expression.Drawing.dll
+F:\code\C#\modern_calculator\modern_calculator\bin\Debug\Microsoft.Expression.Drawing.xml
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\CircularProgressBar.g.cs
+F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\CircularProgressBar.baml
+F:\code\C#\modern_calculator\modern_calculator\bin\Debug\OpenHardwareMonitorLib.dll
