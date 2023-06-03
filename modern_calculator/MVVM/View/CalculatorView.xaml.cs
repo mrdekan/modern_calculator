@@ -112,12 +112,12 @@ namespace modern_calculator.MVVM.View
 				operand_calc.Text = Main_operand_calc.Text + "+";
 				calc_operator = '+';
 				calc_operands++;
-				calc_operand_a = double.Parse(Main_operand_calc.Text);
+				calc_operand_a = Convert.ToDouble(Main_operand_calc.Text.Replace(",", "."));
 				Main_operand_calc.Text = "0";
 			}
 			else
 			{
-				calc_operand_a = Calc(calc_operand_a, double.Parse(Main_operand_calc.Text), calc_operator);
+				calc_operand_a = Calc(calc_operand_a, Convert.ToDouble(Main_operand_calc.Text.Replace(",", ".")), calc_operator);
 				operand_calc.Text = calc_operand_a.ToString() + "+";
 				Main_operand_calc.Text = "0";
 				calc_operator = '+';
@@ -131,12 +131,12 @@ namespace modern_calculator.MVVM.View
 				operand_calc.Text = Main_operand_calc.Text + "-";
 				calc_operator = '-';
 				calc_operands++;
-				calc_operand_a = double.Parse(Main_operand_calc.Text);
+				calc_operand_a = Convert.ToDouble(Main_operand_calc.Text.Replace(",", "."));
 				Main_operand_calc.Text = "0";
 			}
 			else
 			{
-				calc_operand_a = Calc(calc_operand_a, double.Parse(Main_operand_calc.Text), calc_operator);
+				calc_operand_a = Calc(calc_operand_a, Convert.ToDouble(Main_operand_calc.Text.Replace(",", ".")), calc_operator);
 				operand_calc.Text = calc_operand_a.ToString() + "-";
 				Main_operand_calc.Text = "0";
 				calc_operator = '-';
@@ -150,12 +150,12 @@ namespace modern_calculator.MVVM.View
 				operand_calc.Text = Main_operand_calc.Text + "×";
 				calc_operator = '×';
 				calc_operands++;
-				calc_operand_a = double.Parse(Main_operand_calc.Text);
-				Main_operand_calc.Text = "0";
+				calc_operand_a = Convert.ToDouble(Main_operand_calc.Text.Replace(",", "."));
+                Main_operand_calc.Text = "0";
 			}
 			else
 			{
-				calc_operand_a = Calc(calc_operand_a, double.Parse(Main_operand_calc.Text), calc_operator);
+				calc_operand_a = Calc(calc_operand_a, Convert.ToDouble(Main_operand_calc.Text.Replace(",", ".")), calc_operator);
 				operand_calc.Text = calc_operand_a.ToString() + "×";
 				Main_operand_calc.Text = "0";
 				calc_operator = '×';
@@ -168,12 +168,12 @@ namespace modern_calculator.MVVM.View
 				operand_calc.Text = Main_operand_calc.Text + "÷";
 				calc_operator = '÷';
 				calc_operands++;
-				calc_operand_a = double.Parse(Main_operand_calc.Text);
+				calc_operand_a = Convert.ToDouble(Main_operand_calc.Text.Replace(",", "."));
 				Main_operand_calc.Text = "0";
 			}
 			else
 			{
-				calc_operand_a = Calc(calc_operand_a, double.Parse(Main_operand_calc.Text), calc_operator);
+				calc_operand_a = Calc(calc_operand_a, Convert.ToDouble(Main_operand_calc.Text.Replace(",", ".")), calc_operator);
 				operand_calc.Text = calc_operand_a.ToString() + "÷";
 				Main_operand_calc.Text = "0";
 				calc_operator = '÷';
@@ -201,7 +201,7 @@ namespace modern_calculator.MVVM.View
 			else
 			{
 				operand_calc.Text = calc_operand_a.ToString() + calc_operator + Main_operand_calc.Text + "=";
-				calc_operand_a = Calc(calc_operand_a, double.Parse(Main_operand_calc.Text), calc_operator);
+				calc_operand_a = Calc(calc_operand_a, Convert.ToDouble(Main_operand_calc.Text.Replace(",", ".")), calc_operator);
 				Main_operand_calc.Text = calc_operand_a.ToString();
 				calc_operator = 'n';
 			}
