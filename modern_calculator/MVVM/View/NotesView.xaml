@@ -9,7 +9,7 @@
              d:DesignHeight="775" d:DesignWidth="410">
     <StackPanel>
         <Button x:Name="Create" Height="25" Content="New" Background="Transparent" Foreground="White" BorderThickness="1" BorderBrush="White" Click="Create_Click"></Button>
-        <Grid Height="750" x:Name="Field" Background="Transparent">
+        <Grid ClipToBounds="True" Height="750" x:Name="Field" Background="Transparent">
             
         </Grid>
     </StackPanel>
