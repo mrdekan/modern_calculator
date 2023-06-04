@@ -1,5 +1,6 @@
 ﻿using modern_calculator.Controls;
 using modern_calculator.Core;
+using modern_calculator.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +23,40 @@ namespace modern_calculator.MVVM.View
     /// </summary>
     public partial class NotesView : UserControl
     {
-        List<NoteControl> notes = new List<NoteControl>();
+        //List<NoteControl> notes = new List<NoteControl>();
         private long clicks = 0;
         public NotesView()
         {
             InitializeComponent();
-            notes.Add(new NoteControl());
-            Field.Children.Add(notes[0]);
+            //notes.Add(new NoteControl());
+            foreach(var note in AppState.Notes)
+            {
+                NoteControl NewNote = new NoteControl();
+                NewNote.Delete.Click += new RoutedEventHandler(Delete_Click);
+                NewNote.SetFromClass(note);
+                Field.Children.Add(NewNote);
+            }
         }
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
             NoteControl newNote = new NoteControl();
+            newNote.Delete.Click += new RoutedEventHandler(Delete_Click);
             newNote.SetZIndex(AppState.NotesZindex++);
-            notes.Add(newNote);
+            AppState.Notes.Add(newNote.Pack());
             Field.Children.Add(newNote);
+        }
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            AppState.Notes.Remove(AppState.Notes.Find(el => el.Id == ((NoteControl)((FrameworkElement)((FrameworkElement)((FrameworkElement)sender).Parent).Parent).Parent).NoteId));
+            Field.Children.Clear();
+            foreach (var note in AppState.Notes)
+            {
+                NoteControl NewNote = new NoteControl();
+                NewNote.Delete.Click += new RoutedEventHandler(Delete_Click);
+                NewNote.SetFromClass(note);
+                Field.Children.Add(NewNote);
+            }
         }
     }
 }

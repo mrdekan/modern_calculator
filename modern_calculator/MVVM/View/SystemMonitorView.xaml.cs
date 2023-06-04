@@ -17,9 +17,10 @@ namespace modern_calculator.MVVM.View
         private CircularProgressBar pbCPU = new CircularProgressBar();
         private CircularProgressBar pbGPU = new CircularProgressBar();
         private CircularProgressBar pbRAM = new CircularProgressBar();
-        private const int radius = 50;
-        private const double procentsToAngle = 2.7;
-        private const int startPosInProgressBar = 225;
+        private const int RADIUS = 50;
+        private const double PERCENT_TO_ANGLE = 2.7;
+        private const int START_POS_IN_PROGRESS_BAR = 225;
+        private const double SWITCHING_TO_LARGE_ARC = 100 / 3 * 2;
         public SystemMonitorView()
         {
 
@@ -39,65 +40,72 @@ namespace modern_calculator.MVVM.View
         }
         private async void SetProcents()
         {
-            if(!PC.Opened) PC.Open();
-            Random rand = new Random();
-            int cpuLoad = 0, gpuLoad, ramLoad;
             await Task.Run(() =>
             {
+                if (!AppState.ThisPC.Opened)
+                    AppState.ThisPC.Open();
+                Random rand = new Random();
+                int cpuLoad = 0,
+                    gpuLoad = 0,
+                    ramLoad = 0;
                 while (true)
                 {
                     double xCPU, yCPU, xGPU, yGPU, xRAM, yRAM;
-                    cpuLoad += GetCpuLoad()*2; //Slightly stabilize CPU usage
+                    cpuLoad += GetCpuLoad() * 2; //Slightly stabilize CPU usage
                     cpuLoad /= 3; //because OpenHardwareMonitor gives not quite accurate values
                     gpuLoad = GetGpuLoad();
                     ramLoad = GetRamLoad();
-                    (xCPU, yCPU) = GetPointPos(cpuLoad);
-                    (xGPU, yGPU) = GetPointPos(gpuLoad);
-                    (xRAM, yRAM) = GetPointPos(ramLoad);
-                    Application.Current.Dispatcher.Invoke(new Action(() => {
+                    (xCPU, yCPU) = GetPointPos(ref cpuLoad);
+                    (xGPU, yGPU) = GetPointPos(ref gpuLoad);
+                    (xRAM, yRAM) = GetPointPos(ref ramLoad);
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
                         pbCPU.ArcSeg.Point = new Point(xCPU, yCPU);
-                        pbCPU.ArcSeg.IsLargeArc = cpuLoad > 100 / 3 * 2;
-                        pbCPU.Load.Text = cpuLoad+"%";
+                        pbCPU.ArcSeg.IsLargeArc = cpuLoad > SWITCHING_TO_LARGE_ARC;
+                        pbCPU.Load.Text = cpuLoad + "%";
                         pbGPU.ArcSeg.Point = new Point(xGPU, yGPU);
-                        pbGPU.ArcSeg.IsLargeArc = gpuLoad > 100 / 3 * 2;
+                        pbGPU.ArcSeg.IsLargeArc = gpuLoad > SWITCHING_TO_LARGE_ARC;
                         pbGPU.Load.Text = gpuLoad + "%";
                         pbRAM.ArcSeg.Point = new Point(xRAM, yRAM);
-                        pbRAM.ArcSeg.IsLargeArc = ramLoad > 100 / 3 * 2;
+                        pbRAM.ArcSeg.IsLargeArc = ramLoad > SWITCHING_TO_LARGE_ARC;
                         pbRAM.Load.Text = ramLoad + "%";
                     }));
                     Thread.Sleep(100);
                 }
             });
         }
-        private (double, double) GetPointPos(int procents)
+        private (double, double) GetPointPos(ref int percent)
         {
-            if (procents == 0) return (-35.34, 35.34);
-            double angle = procentsToAngle * procents - startPosInProgressBar;
-            return (radius * Math.Cos(angle * Math.PI / 180), radius * Math.Sin(angle * Math.PI / 180));
+            if (percent < 0) percent = 0;
+            else if (percent > 100) percent = 100;
+            if (percent == 0) return (-35.34, 35.34);
+            double angle = PERCENT_TO_ANGLE * percent - START_POS_IN_PROGRESS_BAR;
+            return (RADIUS * Math.Cos(angle * Math.PI / 180), RADIUS * Math.Sin(angle * Math.PI / 180));
         }
         private int GetCpuLoad()
         {
             int load = 0;
             float speed = 0;
-            foreach (var hardwareItem in PC.thisComputer.Hardware)
+            foreach (var hardwareItem in AppState.ThisPC.thisComputer.Hardware)
             {
                 if (hardwareItem.HardwareType == HardwareType.CPU)
                 {
                     hardwareItem.Update();
                     foreach (IHardware subHardware in hardwareItem.SubHardware)
                         subHardware.Update();
-                    foreach (var sensor in hardwareItem.Sensors) { 
-                        if (sensor.SensorType == SensorType.Load && (int)sensor.Value>load) load = (int)sensor.Value;
-                        if (sensor.SensorType == SensorType.Clock && sensor.Name.Contains("CPU")) speed = sensor.Value??PC.baseCPUSpeed;
+                    foreach (var sensor in hardwareItem.Sensors)
+                    {
+                        if (sensor.SensorType == SensorType.Load && (int)sensor.Value > load) load = (int)sensor.Value;
+                        if (sensor.SensorType == SensorType.Clock && sensor.Name.Contains("CPU")) speed = sensor.Value ?? AppState.ThisPC.baseCPUSpeed;
                     }
                 }
             }
-            return (int)Math.Round(load * (speed/PC.baseCPUSpeed), 0);
+            return (int)Math.Round(load * (speed / AppState.ThisPC.baseCPUSpeed), 0);
         }
         private int GetGpuLoad()
         {
             int load = 0;
-            foreach (var hardwareItem in PC.thisComputer.Hardware)
+            foreach (var hardwareItem in AppState.ThisPC.thisComputer.Hardware)
             {
                 if (hardwareItem.HardwareType == HardwareType.GpuAti || hardwareItem.HardwareType == HardwareType.GpuNvidia)
                 {
@@ -114,8 +122,8 @@ namespace modern_calculator.MVVM.View
         {
             var performance = new System.Diagnostics.PerformanceCounter("Memory", "Available MBytes");
             var memory = performance.NextValue();
-            double ram = PC.totalRAM - Math.Round(memory / 1000, 1);
-            return (int)(ram/PC.totalRAM*100);
+            double ram = AppState.ThisPC.totalRAM - Math.Round(memory / 1000, 1);
+            return (int)(ram / AppState.ThisPC.totalRAM * 100);
         }
     }
 }

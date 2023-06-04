@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace modern_calculator.MVVM.Model
 {
-    internal class Note
+    [Serializable]
+    public class Note
     {
-        public int PosX {  get; set; }
-        public int PosY { get; set; }
+        public int Id { get; set; }
+        public double PosX {  get; set; }
+        public double PosY { get; set; }
         public string Text { get; set; }
-        public string Title { get; set; }
     }
 }

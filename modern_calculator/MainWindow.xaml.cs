@@ -25,16 +25,17 @@ namespace modern_calculator
 		public MainWindow()
 		{
 			InitializeComponent();
-			PC.Open();
+            AppState.ThisPC.Open();
             AppState.ContentWidth = Content.Width;
 			AppState.ContentHeight = Content.Height;
-			AppState.ContentMargin = Menu.Width+50;
-
+			AppState.ContentMargin = Menu.Width;
+			FileWorker.Load();
         }
 
 		private void Close_Click(object sender, RoutedEventArgs e)
 		{
 			this.Close();
+			FileWorker.Save();
 		}
 
 		private void Hide_Click(object sender, RoutedEventArgs e)

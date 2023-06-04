@@ -109,6 +109,7 @@
     <Compile Include="Core\AppState.cs" />
     <Compile Include="Core\Converter.cs" />
     <Compile Include="Core\Currency.cs" />
+    <Compile Include="Core\FileWorker.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\PC.cs" />
     <Compile Include="Core\RelayCommand.cs" />

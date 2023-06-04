@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:modern_calculator.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="200">
-    <StackPanel Height="200" Width="200" MouseDown="StackPanel_MouseDown">
+    <StackPanel Height="200" Width="200" Background="Transparent" MouseDown="StackPanel_MouseDown">
         <Border x:Name="NoteTitle" Height="25px" Background="#ff7929" MouseDown="NoteTitle_MouseDown" MouseMove="NoteTitle_MouseMove" MouseUp="NoteTitle_MouseUp" CornerRadius="10,10,0,0" BorderThickness="1,1,1,0" BorderBrush="White">
-
+            <Button x:Name="Delete" HorizontalAlignment="Right" Width="25" Style="{StaticResource TitleButtonTheme}" Background="Transparent" Content="×"/>
         </Border>
         <Border Background="#333" Height="175" CornerRadius="0,0,10,10" BorderThickness="1,0,1,1" BorderBrush="White" Padding="5">
-            <TextBox x:Name="Input" FontSize="16" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="Transparent" BorderThickness="0" Foreground="White" KeyDown="Input_KeyDown"></TextBox>
+            <TextBox x:Name="Input" FontSize="16" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="Transparent" BorderThickness="0" Foreground="White" KeyDown="Input_KeyDown" KeyUp="Input_KeyUp"/>
         </Border>
     </StackPanel>
 </UserControl>

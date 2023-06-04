@@ -22,8 +22,7 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <StackPanel>
-
-            <Border Background="Transparent" x:Name="Title" MouseDown="Title_MouseDown_1">
+        <Border Background="Transparent" x:Name="Title" MouseDown="Title_MouseDown_1">
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Height="25">
                     <Button x:Name="Hide" Width="45" Click="Hide_Click" Style="{StaticResource TitleButtonTheme}" Background="#cccccc" Content="−"></Button>
                     <Button x:Name="Close" Width="45" Click="Close_Click" Style="{StaticResource TitleButtonTheme}" Background="Red" Content="×"></Button>
