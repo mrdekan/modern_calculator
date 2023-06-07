@@ -8,7 +8,7 @@ namespace modern_calculator.Core
         public OpenHardwareMonitor.Hardware.Computer thisComputer;
         public ComputerInfo PCinfo;
         public double totalRAM = 0;
-        public int baseCPUSpeed = 2900;
+        public int baseCPUSpeed = 2900; //Set your base CPU speed
         public bool Opened { get; private set; } = false;
         public async void Open()
         {

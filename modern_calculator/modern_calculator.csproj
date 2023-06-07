@@ -109,6 +109,7 @@
     <Compile Include="Core\AppState.cs" />
     <Compile Include="Core\Converter.cs" />
     <Compile Include="Core\Currency.cs" />
+    <Compile Include="Core\CurrencyTranslator.cs" />
     <Compile Include="Core\FileWorker.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\PC.cs" />
@@ -130,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\NumSysView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,11 +165,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\Model\Note.cs" />
+    <Compile Include="MVVM\Model\SettingsModel.cs" />
     <Compile Include="MVVM\ViewModel\CalculatorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\CurrencyTranslatorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\NotesViewModel.cs" />
     <Compile Include="MVVM\ViewModel\NumSysViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SettingsViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SystemMonitorViewModel.cs" />
     <Compile Include="MVVM\View\CalculatorView.xaml.cs">
       <DependentUpon>CalculatorView.xaml</DependentUpon>
@@ -177,6 +184,9 @@
     </Compile>
     <Compile Include="MVVM\View\NumSysView.xaml.cs">
       <DependentUpon>NumSysView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\SystemMonitorView.xaml.cs">
       <DependentUpon>SystemMonitorView.xaml</DependentUpon>

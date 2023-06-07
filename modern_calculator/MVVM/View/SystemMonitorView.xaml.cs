@@ -51,8 +51,8 @@ namespace modern_calculator.MVVM.View
                 while (true)
                 {
                     double xCPU, yCPU, xGPU, yGPU, xRAM, yRAM;
-                    cpuLoad += GetCpuLoad() * 2; //Slightly stabilize CPU usage
-                    cpuLoad /= 3; //because OpenHardwareMonitor gives not quite accurate values
+                    cpuLoad += GetCpuLoad(); //Slightly stabilize CPU usage
+                    cpuLoad /= 2; //because OpenHardwareMonitor gives not quite accurate values
                     gpuLoad = GetGpuLoad();
                     ramLoad = GetRamLoad();
                     (xCPU, yCPU) = GetPointPos(ref cpuLoad);

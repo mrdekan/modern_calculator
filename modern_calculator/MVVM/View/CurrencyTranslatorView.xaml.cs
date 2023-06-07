@@ -20,42 +20,13 @@ namespace modern_calculator.MVVM.View
     /// </summary>
     public partial class CurrencyTranslatorView : UserControl
     {
-        private const string BANK_JSON_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
-        private string[] currency = { "USD", "EUR", "JPY", "UAH" };
-        private string json = "";
-        List<Currency> currencies;
+        private readonly string[] Currencies = { "USD", "EUR", "JPY", "UAH" };
         public CurrencyTranslatorView()
         {
             InitializeComponent();
             To_CurrTrans.SelectedIndex = 0;
             From_CurrTrans.SelectedIndex = 3;
             ErrorBorder_CurrTrans.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
-            Download();
-        }
-        private async void Download()
-        {
-            await Task.Run(() =>
-            {
-                WebClient wb = new WebClient();
-                try
-                {
-                    json = wb.DownloadString(BANK_JSON_URL);
-                    currencies = new JavaScriptSerializer().Deserialize<List<Currency>>(json);
-                }
-                catch
-                {
-                    CurrTrans_output.Text = "An error occured when processing your request";
-                }
-            });
-        }
-        private double GetCurrency(string name) => currencies.Find(el => el.cc == name).rate;
-        private double ConvertCurr(string from, string to, double value)
-        {
-            if (json == "") return -1;
-            if (from == to) return value;
-            if (from == "UAH") return Math.Round(value / GetCurrency(to), 3);
-            if (to == "UAH") return Math.Round(GetCurrency(from) * value, 3);
-            return Math.Round(GetCurrency(from) * value / GetCurrency(to), 3);
         }
         private void ClearError()
         {
@@ -80,22 +51,23 @@ namespace modern_calculator.MVVM.View
                 Error("Incorrect input");
                 return;
             }
-            double d = Convert.ToDouble(CurrTrans_input.Text.Replace(",", "."));
-            if (json != "")
-                CurrTrans_output.Text = ConvertCurr(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(",", "."))).ToString();
+            if (AppState.Currency.IsLoaded)
+                CurrTrans_output.Text = AppState.Currency.ConvertCurrency(Currencies[From_CurrTrans.SelectedIndex], Currencies[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(".", ","))).ToString();
+            else if (AppState.Currency.LoadingError)
+                Error("Error getting data");
+            else
+                Error("Data not received yet");
         }
-
         private void Reverse_CurrTrans_Click(object sender, RoutedEventArgs e)
         {
             ClearError();
             if (CurrTrans_input.Text != "")
-                CurrTrans_input.Text = ConvertCurr(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(",", "."))).ToString();
+                CurrTrans_input.Text = AppState.Currency.ConvertCurrency(Currencies[From_CurrTrans.SelectedIndex], Currencies[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(".", ","))).ToString();
             else
                 CurrTrans_output.Text = "";
             (To_CurrTrans.SelectedIndex, From_CurrTrans.SelectedIndex) = (From_CurrTrans.SelectedIndex, To_CurrTrans.SelectedIndex);
-            
             if (CurrTrans_input.Text != "")
-                CurrTrans_output.Text = ConvertCurr(currency[From_CurrTrans.SelectedIndex], currency[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(",", "."))).ToString();
+                CurrTrans_output.Text = AppState.Currency.ConvertCurrency(Currencies[From_CurrTrans.SelectedIndex], Currencies[To_CurrTrans.SelectedIndex], Convert.ToDouble(CurrTrans_input.Text.Replace(".", ","))).ToString();
         }
         private void CurrTrans_input_KeyDown(object sender, KeyEventArgs e)
         {

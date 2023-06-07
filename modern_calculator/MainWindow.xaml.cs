@@ -26,6 +26,7 @@ namespace modern_calculator
 		{
 			InitializeComponent();
             AppState.ThisPC.Open();
+			AppState.Currency.DownloadCurrencyRate();
             AppState.ContentWidth = Content.Width;
 			AppState.ContentHeight = Content.Height;
 			AppState.ContentMargin = Menu.Width;

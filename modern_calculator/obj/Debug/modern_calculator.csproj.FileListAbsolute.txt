@@ -91,3 +91,16 @@ F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\NoteControl.g.
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NotesView.g.cs
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\NoteControl.baml
 F:\code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NotesView.baml
+D:\Code\C#\modern_calculator\modern_calculator\bin\Debug\Microsoft.Expression.Drawing.dll
+D:\Code\C#\modern_calculator\modern_calculator\bin\Debug\OpenHardwareMonitorLib.dll
+D:\Code\C#\modern_calculator\modern_calculator\bin\Debug\Microsoft.Expression.Drawing.xml
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\CircularProgressBar.g.cs
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\NoteControl.g.cs
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NotesView.g.cs
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\SystemMonitorView.g.cs
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\CircularProgressBar.baml
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\Controls\NoteControl.baml
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\NotesView.baml
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\SystemMonitorView.baml
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\SettingsView.g.cs
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\MVVM\View\SettingsView.baml

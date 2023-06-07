@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\code\C#\modern_calculator\modern_calculator\obj\Debug\
+D:\Code\C#\modern_calculator\modern_calculator\obj\Debug\
 modern_calculator
 none
 false
 DEBUG;TRACE
-F:\code\C#\modern_calculator\modern_calculator\App.xaml
-13-1138510606
+D:\Code\C#\modern_calculator\modern_calculator\App.xaml
+14-1719818651
 
-271280683360
-2377018354
-Controls\CircularProgressBar.xaml;Controls\NoteControl.xaml;MainWindow.xaml;MVVM\View\CalculatorView.xaml;MVVM\View\CurrencyTranslatorView.xaml;MVVM\View\NotesView.xaml;MVVM\View\NumSysView.xaml;MVVM\View\SystemMonitorView.xaml;Theme\ButtonTheme.xaml;Theme\ComboBoxTheme.xaml;Theme\MenuButtonTheme.xaml;Theme\TextBoxTheme.xaml;Theme\TitleButtonsTheme.xaml;
+31591692561
+23-162604976
+Controls\CircularProgressBar.xaml;Controls\NoteControl.xaml;MainWindow.xaml;MVVM\View\CalculatorView.xaml;MVVM\View\CurrencyTranslatorView.xaml;MVVM\View\NotesView.xaml;MVVM\View\NumSysView.xaml;MVVM\View\SettingsView.xaml;MVVM\View\SystemMonitorView.xaml;Theme\ButtonTheme.xaml;Theme\ComboBoxTheme.xaml;Theme\MenuButtonTheme.xaml;Theme\TextBoxTheme.xaml;Theme\TitleButtonsTheme.xaml;
 
 True
 
