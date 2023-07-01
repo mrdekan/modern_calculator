@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel Margin="5">
             <StackPanel Orientation="Horizontal">
-                <CheckBox Foreground="White">Blurred background</CheckBox>
+                <CheckBox x:Name="BlurredCheckbox" Foreground="White" Click="BlurredCheckbox_Click">Blurred background</CheckBox>
             </StackPanel>
         </StackPanel>
     </Grid>

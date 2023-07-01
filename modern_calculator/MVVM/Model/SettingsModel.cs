@@ -15,7 +15,7 @@ namespace modern_calculator.MVVM.Model
             SysMonitorRefreshDelay = sysMonitorDelay;
             BlurredBackground = blurredBackground;
         }
-        public float SysMonitorRefreshDelay { get; private set; }
-        public bool BlurredBackground { get; private set; }
+        public float SysMonitorRefreshDelay { get; set; }
+        public bool BlurredBackground { get; set; }
     }
 }
